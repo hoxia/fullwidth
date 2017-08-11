@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+fullwidth_conv "$@" | xclip -selection c
