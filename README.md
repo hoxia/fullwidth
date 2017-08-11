@@ -6,7 +6,7 @@ usage:
 
 *(no output, result copied to clipboard)*
 
-`<paste in comment box>`
+`<paste in comment box of `[`catspotting`](https://www.facebook.com/groups/officialcatspotting)`>`
 
 ｈｅ  ｓｃｒｅｍ
 
