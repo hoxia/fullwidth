@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-fullwidth_conv "$@" | xclip -selection c
+if [ "$(uname)" == "Darwin" ]; then
+	fullwidth_conv "$@" | pbcopy
+else
+	fullwidth_conv "$@" | xclip -selection c
+fi
