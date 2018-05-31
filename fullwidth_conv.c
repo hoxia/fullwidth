@@ -1,5 +1,24 @@
 #include <stdio.h>
 #include <stdint.h>
+#include <string.h>
+
+void writesuper(char c)
+{
+	char const * supers[] = {
+		"ᵃ", "ᵇ", "ᶜ", "ᵈ", "ᵉ", "ᶠ", "ᵍ", "ʰ", "ⁱ",
+		"ʲ", "ᵏ", "ˡ", "ᵐ", "ⁿ", "ᵒ", "ᵖ", "ᵠ", "ʳ",
+		"ˢ", "ᵗ", "ᵘ", "ᵛ", "ʷ", "ˣ", "ʸ", "ᶻ"
+	};
+	if ('A' <= c && c <= 'Z') {
+		c += 'a' - 'A';
+	}
+	if ('a' <= c && c <= 'z') {
+		fputs(supers[c - 'a'], stdout);
+	}
+	else {
+		putchar(c);
+	}
+}
 
 // write fullwidth version of ascii character to stdout in UTF-8 encoding.
 void writefw(char c)
@@ -17,18 +36,41 @@ void writefw(char c)
 	}
 }
 
+enum style {
+	FULLWIDTH = 0,
+	SUPER,
+};
+
+typedef void (*conv_fn)(char);
+conv_fn converters[] = {
+	writefw,
+	writesuper,
+};
+
 int main(int argc, char *argv[])
 {
 	int w, c;
 
-	for (w = 1; w < argc; ++w) {
+	enum style style;
+	if (argc > 1 && strcmp(argv[1], "--super") == 0) {
+		style = SUPER;
+		w = 2;
+	}
+	else {
+		style = FULLWIDTH;
+		w = 1;
+	}
+
+	for (; w < argc; ++w) {
 		char const *s = argv[w];
 		while ((c = *s++) != '\0') {
-			writefw(c);
+			converters[style](c);
 		}
 		if (w < (argc - 1)) {
 			putchar(' ');
-			putchar(' ');
+			if (style == FULLWIDTH) {
+				putchar(' ');
+			}
 		}
 	}
 }

@@ -1,4 +1,4 @@
-fullwidth_conv:
+fullwidth_conv: fullwidth_conv.c
 	gcc -o fullwidth_conv fullwidth_conv.c
 
 install: fullwidth_conv
