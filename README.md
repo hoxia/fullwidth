@@ -1,14 +1,18 @@
-command line utility for converting ascii text to fullwidth characters.
+command line utility for converting ascii text to special unicode characters.
+currently supported character types:
+
+* fullwidth
+* superscript
 
 usage:
 
 `fullwidth he screm`
 
-*(no output, result copied to clipboard)*
+*(no output, result copied to clipboard: ｈｅ  ｓｃｒｅｍ)*
 
-`<paste in comment box of `[`catspotting`](https://www.facebook.com/groups/officialcatspotting)`>`
+`fullwidth --super hewwo`
 
-ｈｅ  ｓｃｒｅｍ
+*(copied to clipboard: ʰᵉʷʷᵒ)*
 
 setup:
 
