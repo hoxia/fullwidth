@@ -1,23 +1,32 @@
-command line utility for converting ascii text to special unicode characters.
-currently supported character types:
+Command line utility for converting ASCII text to special Unicode characters.
 
+Can convert to:
 * fullwidth
 * superscript
 
-usage:
+### Clipboard usage
 
-`fullwidth he screm`
+Copy text, run `fullwidth` in a shell, paste converted text.
 
-*(no output, result copied to clipboard: ｈｅ　ｓｃｒｅｍ)*
+"he screm" ⟶ `fullwidth` ⟶ "ｈｅ　ｓｃｒｅｍ"
 
-`fullwidth --super hewwo`
+(`fullwidth --super` is currently broken.)
 
-*(copied to clipboard: ʰᵉʷʷᵒ)*
+### stdout usage
+```
+$ fullwidth_conv he screm
+ｈｅ　ｓｃｒｅｍ
 
-setup:
+$ fullwidth_conv --super hewwo
+ʰᵉʷʷᵒ
+```
 
-	sudo make install
+### Setup
+```
+sudo make install
+```
 
-removal:
-
-	sudo make uninstall
+### Removal
+```
+sudo make uninstall
+```
