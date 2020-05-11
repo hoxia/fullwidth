@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ "$(uname)" == "Darwin" ]; then
-	fullwidth_conv "$@" | pbcopy
+	fullwidth_conv "$(pbpaste -Prefer txt)" | pbcopy
 else
-	fullwidth_conv "$@" | xclip -selection c
+	fullwidth_conv "$(xclip -type text/plain -selection clipboard -out)" | xclip -selection clipboard
 fi
