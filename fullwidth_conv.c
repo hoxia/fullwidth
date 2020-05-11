@@ -35,6 +35,14 @@ void writefw(char c)
 		putchar(0xE0 | (fw >> 12));
 		putchar(0x80 | (0x3F & (fw >> 6)));
 		putchar(0x80 | (0x3F & fw));
+		// variant selector - fullwidth zero with short diagonal stroke
+		if (c == '0') {
+			putchar(0xEF);putchar(0xB8);putchar(0x80);
+		}
+		// variant selector - centered form
+		else if (c == '!' || c == ',' || c == '.' || c == ':' || c == ';' || c == '?') {
+			putchar(0xEF);putchar(0xB8);putchar(0x81);
+		}
 	}
 	// passthrough all else
 	else {
