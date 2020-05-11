@@ -8,7 +8,7 @@ usage:
 
 `fullwidth he screm`
 
-*(no output, result copied to clipboard: ｈｅ  ｓｃｒｅｍ)*
+*(no output, result copied to clipboard: ｈｅ　ｓｃｒｅｍ)*
 
 `fullwidth --super hewwo`
 
