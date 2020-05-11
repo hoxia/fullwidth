@@ -25,12 +25,18 @@ void writefw(char c)
 {
 	uint16_t delta = 0xFF01u - '!';
 
-	if (c >= '!' && c <= '~') {
+	// ideographic space
+	if (c == ' ') {
+		putchar(0xE3);putchar(0x80);putchar(0x80);
+	}
+	// ASCII range
+	else if (c >= '!' && c <= '~') {
 		uint16_t fw = delta + c;
 		putchar(0xE0 | (fw >> 12));
 		putchar(0x80 | (0x3F & (fw >> 6)));
 		putchar(0x80 | (0x3F & fw));
 	}
+	// passthrough all else
 	else {
 		putchar(c);
 	}
