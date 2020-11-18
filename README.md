@@ -8,7 +8,9 @@ Can convert to:
 
 Copy text, run `fullwidth` in a shell, paste converted text.
 
-"he screm" ⟶ `fullwidth` ⟶ "ｈｅ　ｓｃｒｅｍ"
+1. "he screm"
+2. `fullwidth`
+3. "ｈｅ　ｓｃｒｅｍ"
 
 (`fullwidth --super` is currently broken.)
 
